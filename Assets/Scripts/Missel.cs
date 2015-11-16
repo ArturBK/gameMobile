@@ -6,11 +6,10 @@ public class Missel : MonoBehaviour {
 	private float velocidade = 10;
 	private float tempoDeVida = 10;
 	[SerializeField] private int pontosDeDano = 1;
-	GameObject alvo;
+	private Inimigo alvo;
 
 	void Start()
 	{
-		alvo = GameObject.Find ("Inimigo");
 		CleanGarbage ();
 	}
 	
@@ -39,6 +38,10 @@ public class Missel : MonoBehaviour {
 
 	private void CleanGarbage(){
 		Destroy (this.gameObject, 10);
+	}
+
+	public void DefineAlvo(Inimigo inimigo){
+		alvo = inimigo;
 	}
 
 	void OnTriggerEnter(Collider elemento){

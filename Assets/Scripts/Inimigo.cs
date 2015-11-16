@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Inimigo : MonoBehaviour {
 
-	[SerializeField]private int vida = 10;
+	[SerializeField]private int vida = 2;
 
 	void Start () {
 		NavMeshAgent agente = GetComponent<NavMeshAgent> ();
