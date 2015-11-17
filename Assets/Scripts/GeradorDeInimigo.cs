@@ -5,7 +5,8 @@ public class GeradorDeInimigo : MonoBehaviour {
 
 	[SerializeField]private GameObject inimigo;
 
-	private float tempoDeGeracao = 2f;
+    [SerializeField]
+    private float tempoDeGeracao = 2f;
 
 	private float momentoDaUltimaGeracao;
 

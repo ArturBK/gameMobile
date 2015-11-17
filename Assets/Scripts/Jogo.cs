@@ -4,14 +4,38 @@ using System.Collections;
 public class Jogo : MonoBehaviour {
 
 	[SerializeField]private GameObject torrePrefab;
+    [SerializeField]private GameObject gameOver;
+    [SerializeField]private Jogador jogador;
+
+    void Start()
+    {
+        gameOver.SetActive(false);
+    }
 
 	void Update(){
-		if (clicouComBotaoPrimario()) {
-			ConstroiTorre();
-		}
-	}
 
-	private bool clicouComBotaoPrimario(){
+        if (!JogoAcabou())
+        {
+            gameOver.SetActive(true);
+        }
+        else { 
+            if (clicouComBotaoPrimario()) {
+			    ConstroiTorre();
+		    }
+        }
+    }
+
+    public void recomecaJogo()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
+    private bool JogoAcabou()
+    {
+        return jogador.EstaVivo();
+    }
+
+    private bool clicouComBotaoPrimario(){
 		return Input.GetMouseButtonDown (0);
 	}
 
